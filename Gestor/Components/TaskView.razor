@@ -1,0 +1,66 @@
+@page "/taskView"
+
+<style>
+    #taskView {
+        width: 90%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #conteudo {
+        width: 100%;
+        padding:5px;
+        box-shadow: 2px 2px 5px #0C6291;
+        border-radius: 10px;
+    }
+
+    h2 {
+        margin-top: 5px;
+        width:100%;
+        margin-left:2px;
+        margin-right:2px;
+        border-bottom: 2px solid #0C6291;
+    }
+
+    p{
+        margin-top:5px;
+    }
+
+    #editar{
+        background-color: #0C6291;
+        color: #FBFEF9;
+        margin-right:4px;
+        margin-top: 5px;
+    }
+
+    #finalizar{
+        background-color: #297045;
+        color:#FBFEF9;
+        margin-left:4px;
+        margin-top: 5px;
+    }
+
+
+</style>
+<div class="container" id="taskView">
+    <div id="conteudo">
+        <h2>Nome da tarefa</h2>
+        <p>Descricao da tesk</p>
+
+        <div id="buttons " class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" id="editar" class="btn btn-secondary" @onclick="Editar">Editar</button>
+            <button type="button" id="finalizar" class="btn btn-secondary" @onclick="Finalizar">Finalizar</button>
+        </div>
+    </div>
+</div>
+
+
+
+@code{
+    private void Editar(){
+    }
+
+    private void Finalizar(){
+    }
+   
+}
