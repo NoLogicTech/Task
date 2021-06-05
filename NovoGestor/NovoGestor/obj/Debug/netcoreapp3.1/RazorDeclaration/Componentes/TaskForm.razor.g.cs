@@ -84,7 +84,7 @@ using NovoGestor.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 52 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\TaskForm.razor"
+#line 53 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\TaskForm.razor"
       
     private void Confirmar()
     {

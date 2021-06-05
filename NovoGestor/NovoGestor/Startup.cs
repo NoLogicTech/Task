@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NovoGestor.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +12,8 @@ using System.Threading.Tasks;
 using NovoGestor.Model;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore;
+using NovoGestor.Services;
+
 namespace NovoGestor
 {
     public class Startup
@@ -32,6 +33,10 @@ namespace NovoGestor
             services.AddServerSideBlazor();
             var connection = "Data Source=172.31.55.155;Initial Catalog=CNGestaoProjetos;Persist Security Info=True;User ID=sa;Password=SqlCascata@1;";
             services.AddDbContext<CNGestaoProjetosContext>(options => options.UseSqlServer(connection));
+            services.AddHttpClient<ApiService>(client =>
+           {
+              client.BaseAddress = new Uri("http://localhost:44375");
+           });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +63,7 @@ namespace NovoGestor
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
             });
+            
         }
     }
 }

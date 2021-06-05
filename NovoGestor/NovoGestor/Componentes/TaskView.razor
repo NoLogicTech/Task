@@ -1,4 +1,7 @@
 ﻿@page "/TaskView"
+@inject NovoGestor.Services.ApiService apiService 
+@using NovoGestor.Model
+
 <style>
     #taskView {
         width: 90%;
@@ -61,10 +64,7 @@
                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                     </svg>
                 </th>
-                @code{
-                        var streamTask = client.GetStreamAsync("localhost:44375/api/tarefas");
-                        var tarefas = await JsonSerializer.DeserializeAsync<List<Tarefas>>(await streamTask);
-                    }
+               
                 
                 <td>
                     <div id="conteudo">
@@ -111,7 +111,7 @@
         </tbody>
     </table>
 </div>
-
+@tarefas
 
 
 @code{
@@ -125,3 +125,10 @@
 
 }
 
+@code {
+    List<Tarefa> tarefas;
+    protected override async Task OnInitializedAsync()
+    {
+        tarefas = await apiService.GetTarefaAsync();
+    }
+}

@@ -75,6 +75,13 @@ using NovoGestor.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\TaskView.razor"
+using NovoGestor.Model;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/TaskView")]
     public partial class TaskView : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -83,16 +90,6 @@ using NovoGestor.Shared;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 64 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\TaskView.razor"
-                      
-                        var streamTask = client.GetStreamAsync("localhost:44375/api/tarefas");
-                        var tarefas = await JsonSerializer.DeserializeAsync<List<Tarefas>>(await streamTask);
-                    
-
-#line default
-#line hidden
-#nullable disable
 #nullable restore
 #line 117 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\TaskView.razor"
       
@@ -108,6 +105,19 @@ using NovoGestor.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 128 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\TaskView.razor"
+       
+    List<Tarefa> tarefas;
+    protected override async Task OnInitializedAsync()
+    {
+        tarefas = await apiService.GetTarefaAsync();
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NovoGestor.Services.ApiService apiService { get; set; }
     }
 }
 #pragma warning restore 1591
