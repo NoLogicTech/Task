@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Gestor.Api.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class TarefasController : ControllerBase
     {

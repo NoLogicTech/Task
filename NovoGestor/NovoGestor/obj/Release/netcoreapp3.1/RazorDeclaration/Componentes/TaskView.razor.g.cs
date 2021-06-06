@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace NovoGestor
+namespace NovoGestor.Componentes
 {
     #line hidden
     using System;
@@ -75,13 +75,49 @@ using NovoGestor.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class _Imports : System.Object
+#nullable restore
+#line 3 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\TaskView.razor"
+using NovoGestor.Model;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/TaskView")]
+    public partial class TaskView : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
-        protected void Execute()
+        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 117 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\TaskView.razor"
+      
+    private void Editar()
+    {
+    }
+
+    private void Finalizar()
+    {
+    }
+
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 128 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\TaskView.razor"
+       
+    List<Tarefa> tarefas;
+    protected override async Task OnInitializedAsync()
+    {
+        tarefas = await apiService.GetTarefaAsync();
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NovoGestor.Services.ApiService apiService { get; set; }
     }
 }
 #pragma warning restore 1591

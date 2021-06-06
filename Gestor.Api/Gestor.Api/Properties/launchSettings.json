@@ -5,14 +5,14 @@
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:50421",
-      "sslPort": 44375
+      "sslPort": 0
     }
   },
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "tarefas",
+      "launchUrl": "api/tarefas",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,8 +20,8 @@
     "Gestor.Api": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "tarefas",
-      "applicationUrl": "http://localhost:5001",
+      "launchUrl": "api/tarefas",
+      "applicationUrl": "http://localhost:50421",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
