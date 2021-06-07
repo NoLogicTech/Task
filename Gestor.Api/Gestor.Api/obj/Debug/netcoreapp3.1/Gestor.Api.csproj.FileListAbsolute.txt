@@ -264,3 +264,6 @@ C:\Users\NoLogicTech\Documents\GitHub\Task\Gestor.Api\Gestor.Api\obj\Debug\netco
 C:\Users\NoLogicTech\Documents\GitHub\Task\Gestor.Api\Gestor.Api\obj\Debug\netcoreapp3.1\Gestor.Api.dll
 C:\Users\NoLogicTech\Documents\GitHub\Task\Gestor.Api\Gestor.Api\obj\Debug\netcoreapp3.1\Gestor.Api.pdb
 C:\Users\NoLogicTech\Documents\GitHub\Task\Gestor.Api\Gestor.Api\obj\Debug\netcoreapp3.1\Gestor.Api.genruntimeconfig.cache
+C:\Users\NoLogicTech\Documents\GitHub\Task\Gestor.Api\Gestor.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\NoLogicTech\Documents\GitHub\Task\Gestor.Api\Gestor.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\NoLogicTech\Documents\GitHub\Task\Gestor.Api\Gestor.Api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
