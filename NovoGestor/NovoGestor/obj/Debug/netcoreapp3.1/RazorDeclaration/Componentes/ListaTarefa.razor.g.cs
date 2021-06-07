@@ -91,8 +91,9 @@ using NovoGestor.Model;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 115 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\ListaTarefa.razor"
+#line 137 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\ListaTarefa.razor"
       
+    public bool selecionado = false;
     private void Editar()
     {
     }
@@ -101,16 +102,24 @@ using NovoGestor.Model;
     {
     }
 
-    private void Selecionar()
+    private void Selecionar(MouseEventArgs mouseEventArgs)
+    {
+        if (!selecionado)
         {
+            selecionado = true;
         }
+        else
+        {
+            selecionado = false;
+        }
+    }
 
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 130 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\ListaTarefa.razor"
+#line 161 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\ListaTarefa.razor"
        
     List<Tarefa> tarefas;
     protected override async Task OnInitializedAsync()
