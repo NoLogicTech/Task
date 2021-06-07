@@ -83,6 +83,17 @@ using NovoGestor.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 41 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\Projeto.razor"
+      
+    public void NovaTarefa()
+    {
+
+    }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

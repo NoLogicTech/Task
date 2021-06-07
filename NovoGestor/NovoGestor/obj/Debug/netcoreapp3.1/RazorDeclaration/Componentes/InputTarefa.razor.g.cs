@@ -75,8 +75,8 @@ using NovoGestor.Shared;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/TaskForm")]
-    public partial class TaskForm : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/InputTarefa")]
+    public partial class InputTarefa : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -84,7 +84,7 @@ using NovoGestor.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 53 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\TaskForm.razor"
+#line 57 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\InputTarefa.razor"
       
     private void Confirmar()
     {

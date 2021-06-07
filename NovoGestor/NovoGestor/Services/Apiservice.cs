@@ -29,5 +29,15 @@ namespace NovoGestor.Services
             return await JsonSerializer.DeserializeAsync<Tarefa>(responseContent);
         }
 
+        /* envia dados para a api */
+        /* precisa ser construido ainda */
+        public async Task<List<Tarefa>> PutTarefaAsync()
+        {
+            var response = await _httpClient.GetAsync("api/tarefas/");
+            response.EnsureSuccessStatusCode();
+            using var responseContent = await response.Content.ReadAsStreamAsync();
+            return await JsonSerializer.DeserializeAsync<List<Tarefa>>(responseContent);
+        }
+
     }
 }

@@ -178,8 +178,6 @@ C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netco
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\App.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Componentes\Component.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Componentes\Projeto.razor.g.cs
-C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Componentes\TaskForm.razor.g.cs
-C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Componentes\TaskView.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Counter.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Index.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\MainLayout.razor.g.cs
@@ -196,8 +194,6 @@ C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netco
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\App.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\Component.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\Projeto.razor.g.cs
-C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\TaskForm.razor.g.cs
-C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\TaskView.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Pages\Counter.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Pages\Index.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Shared\MainLayout.razor.g.cs
@@ -338,3 +334,7 @@ C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netco
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\NovoGestor.Views.pdb
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\NovoGestor.csproj.CopyComplete
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\NovoGestor.genruntimeconfig.cache
+C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Componentes\InputTarefa.razor.g.cs
+C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Componentes\ListaTarefa.razor.g.cs
+C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\InputTarefa.razor.g.cs
+C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\ListaTarefa.razor.g.cs

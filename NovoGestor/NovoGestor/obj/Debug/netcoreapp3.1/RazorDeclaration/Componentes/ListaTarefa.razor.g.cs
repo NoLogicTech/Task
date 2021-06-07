@@ -76,14 +76,14 @@ using NovoGestor.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\TaskView.razor"
+#line 3 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\ListaTarefa.razor"
 using NovoGestor.Model;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/TaskView")]
-    public partial class TaskView : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/ListaTarefa")]
+    public partial class ListaTarefa : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -91,7 +91,7 @@ using NovoGestor.Model;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 117 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\TaskView.razor"
+#line 115 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\ListaTarefa.razor"
       
     private void Editar()
     {
@@ -101,12 +101,16 @@ using NovoGestor.Model;
     {
     }
 
+    private void Selecionar()
+        {
+        }
+
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 128 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\TaskView.razor"
+#line 130 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\ListaTarefa.razor"
        
     List<Tarefa> tarefas;
     protected override async Task OnInitializedAsync()
