@@ -16,17 +16,24 @@ namespace NovoGestor.Services
         }
         public async Task<List<Tarefa>> GetTarefaAsync()
         {
-            var response = await _httpClient.GetAsync("api/tarefas");
-            response.EnsureSuccessStatusCode();
-            using var responseContent = await response.Content.ReadAsStreamAsync();
-            return await JsonSerializer.DeserializeAsync<List<Tarefa>>(responseContent);
+            var result = await _httpClient.GetAsync("api/tarefas");
+            using var responseStream = await result.Content.ReadAsStreamAsync();
+            var options = new JsonSerializerOptions()
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
+            return await JsonSerializer.DeserializeAsync<List<Tarefa>>(responseStream, options);
         }
         public async Task<Tarefa> GetTarefaPorIdAsync(int id)
         {
-            var response = await _httpClient.GetAsync($"api/tarefas/{id}");
-            response.EnsureSuccessStatusCode();
-            using var responseContent = await response.Content.ReadAsStreamAsync();
-            return await JsonSerializer.DeserializeAsync<Tarefa>(responseContent);
+            var result = await _httpClient.GetAsync($"api/tarefas/{id}");
+            using var responseStream = await result.Content.ReadAsStreamAsync();
+
+            var options = new JsonSerializerOptions()
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
+            return await JsonSerializer.DeserializeAsync<Tarefa>(responseStream, options);
         }
 
         /* envia dados para a api */
