@@ -1,0 +1,32 @@
+﻿@page "/projetogestor"
+@if (tarefas == null)
+{
+    <h1>Carregando a pagina</h1>
+}
+else
+{
+    <Projeto tarefas="@tarefas" OnTarefaUpdated="HandleTarefaUpdated">
+        <ListaTarefa TarefaTarefasuperiorid="@op1" AllowedStatuses="@(new int[] {1})" />
+        <ListaTarefa TarefaTarefasuperiorid="@op2" AllowedStatuses="@(new int[] {2})" />
+        <ListaTarefa TarefaTarefasuperiorid="@op3" AllowedStatuses="@(new int[] {3})" />
+    </Projeto>
+}
+
+
+@code {
+    int op1 = 1;
+    int op2 = 2;
+    int op3 = 3;
+    List<Tarefa> tarefas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        tarefas = await apiService.GetTarefaAsync();
+        Console.WriteLine("feito 1");
+    }
+
+    void HandleTarefaUpdated(Tarefa updatedJob)
+    {
+        Console.WriteLine($"nome: { updatedJob.TarefaId}");
+    }
+}

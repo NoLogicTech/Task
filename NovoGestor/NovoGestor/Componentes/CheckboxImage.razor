@@ -1,0 +1,34 @@
+﻿<div onclick="Selecionar">
+    @if (selecionado)
+    {
+        @TrueImage
+    }
+
+    @if (!selecionado)
+    {
+        @FalseImage
+    }
+</div>
+
+
+@code {
+    [Parameter]
+    public RenderFragment TrueImage { get; set; }
+
+    [Parameter]
+    public RenderFragment FalseImage { get; set; }
+
+    private bool selecionado;
+    private void Selecionar(MouseEventArgs mouseEventArgs)
+    {
+        if (!selecionado)
+        {
+            selecionado = true;
+        }
+        else
+        {
+            selecionado = false;
+        }
+    }
+
+}

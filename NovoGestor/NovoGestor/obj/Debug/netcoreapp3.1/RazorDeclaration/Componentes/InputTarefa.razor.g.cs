@@ -75,7 +75,20 @@ using NovoGestor.Shared;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/InputTarefa")]
+#nullable restore
+#line 11 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\_Imports.razor"
+using NovoGestor.Model;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\_Imports.razor"
+using NovoGestor.Componentes;
+
+#line default
+#line hidden
+#nullable disable
     public partial class InputTarefa : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -84,20 +97,30 @@ using NovoGestor.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 57 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\InputTarefa.razor"
+#line 82 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\InputTarefa.razor"
       
-    private void Confirmar()
+    [Parameter]
+    public Tarefa tarefa { get; set; }
+
+    [CascadingParameter] 
+    Projeto Container { get; set; }
+
+    
+
+    private async Task Confirmar()
     {
+        await apiService.PutTarefaAsync(tarefa.TarefaId, tarefa);
     }
 
-    private void Cancelar()
+    private void HandleDragStart(Tarefa selectedTarefa)
     {
+        Container.Payload = selectedTarefa;
     }
-
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NovoGestor.Services.ApiService apiService { get; set; }
     }
 }
 #pragma warning restore 1591

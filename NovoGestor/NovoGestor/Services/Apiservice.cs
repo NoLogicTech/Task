@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using NovoGestor.Model;
+using System.Net.Http.Json;
 
 namespace NovoGestor.Services
 {
@@ -38,13 +39,23 @@ namespace NovoGestor.Services
 
         /* envia dados para a api */
         /* precisa ser construido ainda */
-        public async Task<List<Tarefa>> PutTarefaAsync()
+        public async Task<List<Tarefa>> PutTarefaAsync(int id,Tarefa trf)
         {
-            var response = await _httpClient.GetAsync("api/tarefas/");
-            response.EnsureSuccessStatusCode();
-            using var responseContent = await response.Content.ReadAsStreamAsync();
-            return await JsonSerializer.DeserializeAsync<List<Tarefa>>(responseContent);
+            var response = await _httpClient.PutAsJsonAsync<Tarefa>($"api/tarefas/{id}", trf);
+            var content = await response.Content.ReadFromJsonAsync<List<Tarefa>>();
+            return content;
         }
 
+        public async Task<Tarefa> PostTarefa(Tarefa trf)
+        {
+            var response = await _httpClient.PostAsJsonAsync<Tarefa>("api/tarefas/",trf);
+            var content = await response.Content.ReadFromJsonAsync<Tarefa>();
+            return content;
+        }
+
+        public async Task DeleteTarefa(int id)
+        {
+            await _httpClient.DeleteAsync($"api/tarefas/{id}");
+        }
     }
 }

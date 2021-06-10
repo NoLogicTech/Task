@@ -75,6 +75,20 @@ using NovoGestor.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\_Imports.razor"
+using NovoGestor.Model;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\_Imports.razor"
+using NovoGestor.Componentes;
+
+#line default
+#line hidden
+#nullable disable
     public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -97,6 +111,7 @@ using NovoGestor.Shared;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NovoGestor.Services.ApiService apiService { get; set; }
     }
 }
 #pragma warning restore 1591

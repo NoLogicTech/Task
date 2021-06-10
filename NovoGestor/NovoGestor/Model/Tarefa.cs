@@ -28,4 +28,5 @@ namespace NovoGestor.Model
         public virtual Tarefa TarefaTarefasuperior { get; set; }
         public virtual ICollection<Tarefa> InverseTarefaTarefasuperior { get; set; }
     }
+
 }

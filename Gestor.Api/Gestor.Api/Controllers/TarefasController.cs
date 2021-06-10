@@ -50,18 +50,22 @@ namespace Gestor.Api.Controllers
 
         // POST api/<ValuesController>
         [HttpPost]
-        public void Adicionar([FromBody] Tarefa trf)
+        public async Task Post([FromBody] Tarefa trf)
         {
             _context.Tarefa.Add(trf);
             _context.SaveChanges();
         }
 
         // PUT api/<ValuesController>/5
-        [HttpPut]
-        public void AtualizarTarefa([FromBody] Tarefa trf)
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Put(int id, [FromBody] Tarefa trf)
         {
+            if (trf.TarefaId != id){
+                return BadRequest();
+             }
             _context.Tarefa.Update(trf);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
+            return NoContent();
         }
 
         // DELETE api/<ValuesController>/5

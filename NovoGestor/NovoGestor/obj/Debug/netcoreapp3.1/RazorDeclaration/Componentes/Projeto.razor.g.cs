@@ -75,6 +75,20 @@ using NovoGestor.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\_Imports.razor"
+using NovoGestor.Model;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\_Imports.razor"
+using NovoGestor.Componentes;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/projeto")]
     public partial class Projeto : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -84,16 +98,51 @@ using NovoGestor.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 52 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\Projeto.razor"
+#line 55 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\Projeto.razor"
       
-    public void NovaTarefa()
-    {
+    /*
+    List<Tarefa> tarefas;
 
+    protected override async Task OnInitializedAsync()
+    {
+        tarefas = await apiService.GetTarefaAsync();
     }
+    */
+
+    [Parameter] public List<Tarefa> tarefas { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; } // codigo que sera renderizado dentro do componete, nomeadamete outeo codigo html ou outro componete
+    [Parameter] public EventCallback<Tarefa> OnTarefaUpdated { get; set; } // evento que é chamado quando a uma tarefa é arrastado para dentro desse container ou projeto
+
+    public Tarefa Payload { get; set; } // tarefa que sera carregada
+
+    public async Task UpdateTarefaAsync(int TarefaTarefasuperiorid)
+    {
+        /* procura a tarefa que sera carregada*/
+        // var task = tarefas.SingleOrDefault(x => x.TarefaId == Payload.TarefaId);
+        var task = await apiService.GetTarefaPorIdAsync(Payload.TarefaId);
+        Console.WriteLine("tarefa 0");
+
+        /* se a tarefa for encontrada ela sera mudada de tarefa superior*/
+        if (task != null)
+        {
+            Console.WriteLine($"antes: { task.TarefaTarefasuperiorid} { task}");
+            task.TarefaTarefasuperiorid = TarefaTarefasuperiorid;
+            await OnTarefaUpdated.InvokeAsync(Payload);
+            Console.WriteLine($"depois { task.TarefaTarefasuperiorid} { task}");
+            await apiService.PutTarefaAsync(task.TarefaId, task);
+            Console.WriteLine("tarefa 1");
+
+        }
+    }
+
+    public void NovaTarefa() { }
+
+
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NovoGestor.Services.ApiService apiService { get; set; }
     }
 }
 #pragma warning restore 1591

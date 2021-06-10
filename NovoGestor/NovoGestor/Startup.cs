@@ -35,7 +35,8 @@ namespace NovoGestor
             services.AddDbContext<CNGestaoProjetosContext>(options => options.UseSqlServer(connection));
             services.AddHttpClient<ApiService>(client =>
            {
-              client.BaseAddress = new Uri("http://localhost:50421/");
+               client.BaseAddress = new Uri("http://localhost:50421/");
+               client.DefaultRequestHeaders.Add("Accept", "application/+json");
            });
             
 

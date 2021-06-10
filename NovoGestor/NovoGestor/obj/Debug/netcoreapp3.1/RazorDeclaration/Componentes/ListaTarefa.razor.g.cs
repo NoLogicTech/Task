@@ -76,8 +76,15 @@ using NovoGestor.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\ListaTarefa.razor"
+#line 11 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\_Imports.razor"
 using NovoGestor.Model;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\_Imports.razor"
+using NovoGestor.Componentes;
 
 #line default
 #line hidden
@@ -91,40 +98,74 @@ using NovoGestor.Model;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 137 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\ListaTarefa.razor"
+#line 11 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\ListaTarefa.razor"
       
-    public bool selecionado = false;
-    private void Editar()
-    {
-    }
+    /*
+    List<Tarefa> tarefas;
 
-    private void Finalizar()
+    protected override async Task OnInitializedAsync()
     {
+        tarefas = await apiService.GetTarefaAsync();
     }
-
-    private void Selecionar(MouseEventArgs mouseEventArgs)
-    {
-        if (!selecionado)
-        {
-            selecionado = true;
-        }
-        else
-        {
-            selecionado = false;
-        }
-    }
-
+    */
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 161 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\ListaTarefa.razor"
+#line 47 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\ListaTarefa.razor"
        
-    List<Tarefa> tarefas;
-    protected override async Task OnInitializedAsync()
+
+    [CascadingParameter] Projeto Container { get; set; }
+    [Parameter] public int TarefaTarefasuperiorid { get; set; }
+    [Parameter] public int[] AllowedStatuses { get; set; }
+
+    List<Tarefa> tarefas = new List<Tarefa>();
+    string dropClass = "";
+
+    protected override void OnParametersSet()
     {
-        tarefas = await apiService.GetTarefaAsync();
+        tarefas.Clear();
+        tarefas.AddRange(Container.tarefas.Where(x => x.TarefaTarefasuperiorid == TarefaTarefasuperiorid));
+
+    }
+
+    private void HandleDragEnter()
+    {
+        if (TarefaTarefasuperiorid == Container.Payload.TarefaTarefasuperiorid) return;
+
+        if (AllowedStatuses != null && !AllowedStatuses.Contains(Container.Payload.TarefaTarefasuperiorid))
+        {
+            Console.WriteLine($"{AllowedStatuses != null}{!AllowedStatuses.Contains(Container.Payload.TarefaTarefasuperiorid)}");
+            Console.WriteLine($"{TarefaTarefasuperiorid} {Container.Payload.TarefaTarefasuperiorid}");
+            dropClass = "can-drop";
+
+        }
+        else
+        {
+            Console.WriteLine($"faslso ------------------------------- {TarefaTarefasuperiorid} {Container.Payload.TarefaTarefasuperiorid}");
+            dropClass = "no-drop";
+        }
+    }
+
+    private void HandleDragLeave()
+
+    {
+        dropClass = "";
+    }
+
+    private async Task HandleDrop()
+    {
+        dropClass = "";
+
+        if (AllowedStatuses != null && !AllowedStatuses.Contains(Container.Payload.TarefaTarefasuperiorid))
+            {
+                await Container.UpdateTarefaAsync(TarefaTarefasuperiorid);
+                return;
+            }
+
+        
+
     }
 
 #line default

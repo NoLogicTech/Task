@@ -176,7 +176,6 @@ C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netco
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\NovoGestor.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\NovoGestor.RazorComponent.input.cache
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\App.razor.g.cs
-C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Componentes\Component.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Componentes\Projeto.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Counter.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Index.razor.g.cs
@@ -192,7 +191,6 @@ C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netco
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\NovoGestor.TagHelpers.output.cache
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\NovoGestor.RazorCoreGenerate.cache
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\App.razor.g.cs
-C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\Component.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\Projeto.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Pages\Counter.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Pages\Index.razor.g.cs
@@ -338,3 +336,13 @@ C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netco
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Componentes\ListaTarefa.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\InputTarefa.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\ListaTarefa.razor.g.cs
+C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\bin\Debug\netcoreapp3.1\System.Net.Http.Json.dll
+C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Componentes\TarefaChild.razor.g.cs
+C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\TarefaChild.razor.g.cs
+C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Componentes\CheckboxImage.razor.g.cs
+C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Componentes\TarefaForm.razor.g.cs
+C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\CheckboxImage.razor.g.cs
+C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\TarefaForm.razor.g.cs
+C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Componentes\ProjetoGestor.razor.g.cs
+C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\ProjetoGestor.razor.g.cs
