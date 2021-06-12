@@ -67,16 +67,11 @@
     
 
 </style>
-<div class="container draggable" draggable="true" title="@tarefa.TarefaId"  @ondragstart="@(() => HandleDragStart(tarefa))" style="width:200px;height:100px;background:green;">
+<div class="container draggable" draggable="true" title="@tarefa.TarefaId"  @ondragstart="@(() => HandleDragStart(tarefa))">
     
 
-    <li style="width:100px;height:50px;background:red;">
-        <!-- <p class="description">@tarefa.TarefaNome</p>
-    <p class="last-updated"><small>Last Updated</small> @tarefa.TarefaDatahoraregisto.ToString("HH:mm.ss tt")</p>
-    -->
-        @tarefa.TarefaId
-        cctrctrxcrxr
-        <!-- <TarefaForm tarefa="@tarefa" OnValidSubmit="@Confirmar" /> -->
+    <li>
+        <TarefaForm tarefa="@tarefa" OnValidSubmit="@Confirmar" /> 
     </li>
 </div>
 @code{

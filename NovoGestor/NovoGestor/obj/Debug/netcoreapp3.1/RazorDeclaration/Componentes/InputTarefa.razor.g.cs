@@ -97,7 +97,7 @@ using NovoGestor.Componentes;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 82 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\InputTarefa.razor"
+#line 77 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\InputTarefa.razor"
       
     [Parameter]
     public Tarefa tarefa { get; set; }
