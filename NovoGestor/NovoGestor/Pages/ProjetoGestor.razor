@@ -22,7 +22,6 @@ else
     protected override async Task OnInitializedAsync()
     {
         tarefas = await apiService.GetTarefaAsync();
-        Console.WriteLine("feito 1");
     }
 
     void HandleTarefaUpdated(Tarefa updatedJob)

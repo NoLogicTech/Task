@@ -100,14 +100,6 @@ using NovoGestor.Componentes;
 #nullable restore
 #line 55 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\Projeto.razor"
       
-    /*
-    List<Tarefa> tarefas;
-
-    protected override async Task OnInitializedAsync()
-    {
-        tarefas = await apiService.GetTarefaAsync();
-    }
-    */
 
     [Parameter] public List<Tarefa> tarefas { get; set; }
     [Parameter] public RenderFragment ChildContent { get; set; } // codigo que sera renderizado dentro do componete, nomeadamete outeo codigo html ou outro componete
@@ -118,20 +110,18 @@ using NovoGestor.Componentes;
     public async Task UpdateTarefaAsync(int TarefaTarefasuperiorid)
     {
         /* procura a tarefa que sera carregada*/
-        // var task = tarefas.SingleOrDefault(x => x.TarefaId == Payload.TarefaId);
-        var task = await apiService.GetTarefaPorIdAsync(Payload.TarefaId);
-        Console.WriteLine("tarefa 0");
+        var task = tarefas.SingleOrDefault(x => x.TarefaId == Payload.TarefaId);
 
         /* se a tarefa for encontrada ela sera mudada de tarefa superior*/
         if (task != null)
         {
             Console.WriteLine($"antes: { task.TarefaTarefasuperiorid} { task}");
             task.TarefaTarefasuperiorid = TarefaTarefasuperiorid;
-            await OnTarefaUpdated.InvokeAsync(Payload);
+
             Console.WriteLine($"depois { task.TarefaTarefasuperiorid} { task}");
             await apiService.PutTarefaAsync(task.TarefaId, task);
-            Console.WriteLine("tarefa 1");
-
+            await OnTarefaUpdated.InvokeAsync(Payload);
+            navigation.NavigateTo("projetogestorprojetogestor");
         }
     }
 
@@ -142,6 +132,7 @@ using NovoGestor.Componentes;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigation { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NovoGestor.Services.ApiService apiService { get; set; }
     }
 }

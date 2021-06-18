@@ -1,25 +1,5 @@
 ﻿@page "/ListaTarefa"
 
-
-<style>
-</style>
-
-
-
-
-
-@code{
-    /*
-    List<Tarefa> tarefas;
-
-    protected override async Task OnInitializedAsync()
-    {
-        tarefas = await apiService.GetTarefaAsync();
-    }
-    */
-}
-
-
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------- -->
 <!--                                                        Testatando Drang and drop                                                                    -->
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------------- -->
@@ -62,12 +42,16 @@
 
     private void HandleDragEnter()
     {
-        if (TarefaTarefasuperiorid == Container.Payload.TarefaTarefasuperiorid) return;
+        if (TarefaTarefasuperiorid == Container.Payload.TarefaTarefasuperiorid)
+        {
+            Console.WriteLine($"nem tente enxeto id {Container.Payload.TarefaId} trs {TarefaTarefasuperiorid} elem {Container.Payload.TarefaTarefasuperiorid}");
+            return;
+        }
 
         if (AllowedStatuses != null && !AllowedStatuses.Contains(Container.Payload.TarefaTarefasuperiorid))
         {
             Console.WriteLine($"{AllowedStatuses != null}{!AllowedStatuses.Contains(Container.Payload.TarefaTarefasuperiorid)}");
-            Console.WriteLine($"{TarefaTarefasuperiorid} {Container.Payload.TarefaTarefasuperiorid}");
+            Console.WriteLine($"id {Container.Payload.TarefaId} trs {TarefaTarefasuperiorid} elm { Container.Payload.TarefaTarefasuperiorid}");
             dropClass = "can-drop";
 
         }
@@ -89,9 +73,9 @@
         dropClass = "";
 
         if (AllowedStatuses != null && !AllowedStatuses.Contains(Container.Payload.TarefaTarefasuperiorid))
-            {
-                await Container.UpdateTarefaAsync(TarefaTarefasuperiorid);
-                return;
-            }
+        {
+            await Container.UpdateTarefaAsync(TarefaTarefasuperiorid);
+            return;
+        }
     }
 }

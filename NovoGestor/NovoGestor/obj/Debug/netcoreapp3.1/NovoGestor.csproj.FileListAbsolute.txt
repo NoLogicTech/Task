@@ -344,5 +344,5 @@ C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netco
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Componentes\TarefaForm.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\CheckboxImage.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\TarefaForm.razor.g.cs
-C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Componentes\ProjetoGestor.razor.g.cs
-C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\ProjetoGestor.razor.g.cs
+C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ProjetoGestor.razor.g.cs
+C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Pages\ProjetoGestor.razor.g.cs

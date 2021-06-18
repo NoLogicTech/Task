@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace NovoGestor.Componentes
+namespace NovoGestor.Pages
 {
     #line hidden
     using System;
@@ -98,7 +98,7 @@ using NovoGestor.Componentes;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 16 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\ProjetoGestor.razor"
+#line 16 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Pages\ProjetoGestor.razor"
        
     int op1 = 1;
     int op2 = 2;
@@ -108,7 +108,6 @@ using NovoGestor.Componentes;
     protected override async Task OnInitializedAsync()
     {
         tarefas = await apiService.GetTarefaAsync();
-        Console.WriteLine("feito 1");
     }
 
     void HandleTarefaUpdated(Tarefa updatedJob)
@@ -119,6 +118,7 @@ using NovoGestor.Componentes;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigation { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NovoGestor.Services.ApiService apiService { get; set; }
     }
 }

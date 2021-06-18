@@ -98,22 +98,7 @@ using NovoGestor.Componentes;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 11 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\ListaTarefa.razor"
-      
-    /*
-    List<Tarefa> tarefas;
-
-    protected override async Task OnInitializedAsync()
-    {
-        tarefas = await apiService.GetTarefaAsync();
-    }
-    */
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 47 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\ListaTarefa.razor"
+#line 27 "C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\Componentes\ListaTarefa.razor"
        
 
     [CascadingParameter] Projeto Container { get; set; }
@@ -132,12 +117,16 @@ using NovoGestor.Componentes;
 
     private void HandleDragEnter()
     {
-        if (TarefaTarefasuperiorid == Container.Payload.TarefaTarefasuperiorid) return;
+        if (TarefaTarefasuperiorid == Container.Payload.TarefaTarefasuperiorid)
+        {
+            Console.WriteLine($"nem tente enxeto id {Container.Payload.TarefaId} trs {TarefaTarefasuperiorid} elem {Container.Payload.TarefaTarefasuperiorid}");
+            return;
+        }
 
         if (AllowedStatuses != null && !AllowedStatuses.Contains(Container.Payload.TarefaTarefasuperiorid))
         {
             Console.WriteLine($"{AllowedStatuses != null}{!AllowedStatuses.Contains(Container.Payload.TarefaTarefasuperiorid)}");
-            Console.WriteLine($"{TarefaTarefasuperiorid} {Container.Payload.TarefaTarefasuperiorid}");
+            Console.WriteLine($"id {Container.Payload.TarefaId} trs {TarefaTarefasuperiorid} elm { Container.Payload.TarefaTarefasuperiorid}");
             dropClass = "can-drop";
 
         }
@@ -159,15 +148,16 @@ using NovoGestor.Componentes;
         dropClass = "";
 
         if (AllowedStatuses != null && !AllowedStatuses.Contains(Container.Payload.TarefaTarefasuperiorid))
-            {
-                await Container.UpdateTarefaAsync(TarefaTarefasuperiorid);
-                return;
-            }
+        {
+            await Container.UpdateTarefaAsync(TarefaTarefasuperiorid);
+            return;
+        }
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigation { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NovoGestor.Services.ApiService apiService { get; set; }
     }
 }
