@@ -169,7 +169,6 @@ C:\Users\NoLogicTech\Documents\GitHub\NovoGestor\NovoGestor\obj\Debug\netcoreapp
 C:\Users\NoLogicTech\Documents\GitHub\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Componentes\Component.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\Component.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\Projeto.razor.g.cs
-C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\NovoGestor.csprojAssemblyReference.cache
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\NovoGestor.AssemblyInfoInputs.cache
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\NovoGestor.AssemblyInfo.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\NovoGestor.csproj.CoreCompileInputs.cache
@@ -346,3 +345,4 @@ C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netco
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Componentes\TarefaForm.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ProjetoGestor.razor.g.cs
 C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\Razor\Pages\ProjetoGestor.razor.g.cs
+C:\Users\NoLogicTech\Documents\GitHub\Task\NovoGestor\NovoGestor\obj\Debug\netcoreapp3.1\NovoGestor.csproj.AssemblyReference.cache
