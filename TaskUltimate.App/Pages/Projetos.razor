@@ -1,0 +1,22 @@
+﻿@page "/projetos"
+@if (projetos == null)
+{
+    <h1>Carregando .........</h1>
+}
+else
+{
+    @foreach (Projeto elemento in projetos)
+    {
+        <a href=@("/pagetarefa/"+ elemento.ProjetoId)>Numero projeto @elemento.ProjetoId</a>
+        
+    } 
+}
+
+
+@code {
+private List<Projeto> projetos;
+    protected override async Task OnInitializedAsync()
+    {
+        projetos = await apiService.apiProjeto.GetAsync();
+    }
+}

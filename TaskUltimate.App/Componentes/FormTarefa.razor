@@ -1,0 +1,88 @@
+﻿<EditForm Model="tarefa" OnValidSubmit="Submit">
+    <div class="table">
+        <div class="row">
+            <div class="col-auto">
+                <h3>Projeto*</h3>
+                <InputNumber @bind-Value="tarefa.ProjetoId"></InputNumber>
+            </div>
+
+            <div class="col-auto">
+                <h3>Nome*</h3>
+                <InputText @bind-Value="tarefa.TarefaNome"></InputText>
+            </div>
+        </div>
+
+        <div col="row">
+
+            <div class="col-auto">
+                <h3>Data limite*</h3>
+                <InputDate @bind-Value="tarefa.TarefaDatalimite"></InputDate>
+            </div>
+
+            <div class="col-auto">
+                <h3>Posisao*</h3>
+                <InputNumber @bind-Value="tarefa.TarefaPosicao"></InputNumber>
+            </div>
+         </div>
+        
+
+        <div class="row">
+            <div class="col-auto">
+                <h3>Id criador*</h3>
+                <InputNumber @bind-Value="tarefa.UtilizadorIdcriador"></InputNumber>
+            </div>
+
+            <div class="col-auto">
+                <h3>Utilizador atribuido*</h3>
+                <InputNumber @bind-Value="tarefa.UtilizadorIdatribuido"></InputNumber>
+            </div>
+
+            <div class="col-auto">
+                <h3>Tarefa Estado*</h3>
+                <InputCheckbox @bind-Value="tarefa.TarefaEstado"></InputCheckbox>
+            </div>
+
+            <div class="col-auto">
+                <h3>Tem filho*</h3>
+                <InputCheckbox @bind-Value="tarefa.TarefaTemfilho"></InputCheckbox>
+            </div>
+            <div class="col-auto">
+                <button type="submit">ok</button>
+            </div>
+        </div>  
+    </div>
+    
+</EditForm>
+
+@code {     
+    [Parameter]
+    public Tarefa tarefa { get; set; } = new Tarefa();
+
+    [Parameter]
+    public bool Sub { get; set; }
+
+    public async Task Submit()
+    {
+        if (Sub)
+        {
+            await apiTarefa.PutAsync(tarefa.TarefaId, tarefa);
+            StateHasChanged();
+        }
+        else
+        {
+            tarefa.TarefaDatahoraregisto=  DateTime.Now;
+            await apiTarefa.Post(tarefa);
+            StateHasChanged();
+        }
+
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        if (!Sub)
+        {
+            tarefa.TarefaDatalimite = DateTime.Now;
+        }
+        return base.OnInitializedAsync();
+    }
+}

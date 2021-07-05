@@ -1,0 +1,29 @@
+﻿@using TaskUltimate.App.Data
+@inject DragAndDropService DragAndDropService
+@typeparam T
+<div ondragover="event.preventDefault()" @ondrop="@OnDrop">
+    @ChildContent
+</div>
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string Zone { get; set; }
+
+    //[Parameter]
+    //public Action<T> Drop { get; set; }
+
+    async Task OnDrop()
+    {
+        // Drop != null &&
+        // 
+        if ( DragAndDropService.Accepts(Zone))
+        {
+            Tarefa trf = (Tarefa)DragAndDropService.Data;
+            trf.TarefaPosicao += 1;
+            //Drop((T)DragAndDropService.Data);
+            await apiTarefa.PutAsync(trf.TarefaId, trf);
+        }
+    }
+}
