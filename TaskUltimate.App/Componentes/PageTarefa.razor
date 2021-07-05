@@ -1,5 +1,5 @@
-﻿@page "/pagetarefa/{id}"
-<FormTarefa />
+﻿@page "/pagetarefa/{ProjetoId}"
+<FormTarefa ProjetoId="Convert.ToInt32(ProjetoId)"/>
 <style>
     .draggable {
         border: 1px solid #ccc;
@@ -56,7 +56,7 @@ else
         public List<Tarefa> temp { get; set; } = new List<Tarefa>();
 
         [Parameter]
-        public string Id { get; set; }
+        public string ProjetoId { get; set; }
 
     string dropMessage = null;
 
@@ -71,7 +71,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        temp = await apiService.apiTarefa.GetForProjectIdAsync(Convert.ToInt32(Id));
+        temp = await apiService.apiTarefa.GetForProjectIdAsync(Convert.ToInt32(ProjetoId));
 
         // se existe algum projeto com a mesma chave do contador ela é ordenada
         temp.Sort(delegate (Tarefa p1, Tarefa p2)

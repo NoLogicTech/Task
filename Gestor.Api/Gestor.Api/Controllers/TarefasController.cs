@@ -59,7 +59,8 @@ namespace Gestor.Api.Controllers
         [HttpPost]
         public async Task Post([FromBody] Tarefa value)
         {
-            await _context.Tarefa.AddAsync(value);
+            Console.WriteLine("cheu aqui");
+            _context.Tarefa.Add(value);
             await _context.SaveChangesAsync();
         }
 

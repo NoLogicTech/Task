@@ -13,104 +13,104 @@ namespace TaskUltimate.App.Componentes
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\NoLogicTech\source\repos\TaskUltimate\TaskUltimate.App\_Imports.razor"
+#line 1 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\NoLogicTech\source\repos\TaskUltimate\TaskUltimate.App\_Imports.razor"
+#line 2 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\NoLogicTech\source\repos\TaskUltimate\TaskUltimate.App\_Imports.razor"
+#line 3 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\NoLogicTech\source\repos\TaskUltimate\TaskUltimate.App\_Imports.razor"
+#line 4 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\NoLogicTech\source\repos\TaskUltimate\TaskUltimate.App\_Imports.razor"
+#line 5 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\NoLogicTech\source\repos\TaskUltimate\TaskUltimate.App\_Imports.razor"
+#line 6 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\NoLogicTech\source\repos\TaskUltimate\TaskUltimate.App\_Imports.razor"
+#line 7 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\NoLogicTech\source\repos\TaskUltimate\TaskUltimate.App\_Imports.razor"
+#line 8 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\_Imports.razor"
 using TaskUltimate.App;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\NoLogicTech\source\repos\TaskUltimate\TaskUltimate.App\_Imports.razor"
+#line 9 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\_Imports.razor"
 using TaskUltimate.App.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\NoLogicTech\source\repos\TaskUltimate\TaskUltimate.App\_Imports.razor"
+#line 10 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\_Imports.razor"
 using TaskUltimate.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Users\NoLogicTech\source\repos\TaskUltimate\TaskUltimate.App\_Imports.razor"
+#line 13 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\_Imports.razor"
 using TaskUltimate.App.Pages;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "C:\Users\NoLogicTech\source\repos\TaskUltimate\TaskUltimate.App\_Imports.razor"
+#line 14 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\_Imports.razor"
 using Radzen;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 15 "C:\Users\NoLogicTech\source\repos\TaskUltimate\TaskUltimate.App\_Imports.razor"
+#line 15 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\_Imports.razor"
 using Radzen.Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 16 "C:\Users\NoLogicTech\source\repos\TaskUltimate\TaskUltimate.App\_Imports.razor"
+#line 16 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\_Imports.razor"
 using TaskUltimate.App.Componentes;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/pagetarefa/{id}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/pagetarefa/{ProjetoId}")]
     public partial class PageTarefa : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -119,12 +119,12 @@ using TaskUltimate.App.Componentes;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 55 "C:\Users\NoLogicTech\source\repos\TaskUltimate\TaskUltimate.App\Componentes\PageTarefa.razor"
+#line 55 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\PageTarefa.razor"
       
         public List<Tarefa> temp { get; set; } = new List<Tarefa>();
 
         [Parameter]
-        public string Id { get; set; }
+        public string ProjetoId { get; set; }
 
     string dropMessage = null;
 
@@ -139,7 +139,7 @@ using TaskUltimate.App.Componentes;
 
     protected override async Task OnInitializedAsync()
     {
-        temp = await apiService.apiTarefa.GetForProjectIdAsync(Convert.ToInt32(Id));
+        temp = await apiService.apiTarefa.GetForProjectIdAsync(Convert.ToInt32(ProjetoId));
 
         // se existe algum projeto com a mesma chave do contador ela é ordenada
         temp.Sort(delegate (Tarefa p1, Tarefa p2)

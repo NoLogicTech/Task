@@ -10,7 +10,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskUltimate.App", "TaskUlt
 		{D8A1A01F-B9EF-425B-922C-BE32FEFA35F6} = {D8A1A01F-B9EF-425B-922C-BE32FEFA35F6}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestor.Api", "..\..\..\Documents\GitHub\Task\Gestor.Api\Gestor.Api\Gestor.Api.csproj", "{09CF1A6F-659F-4E19-9C7C-DB54BFB1914D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestor.Api", "Gestor.Api\Gestor.Api\Gestor.Api.csproj", "{09CF1A6F-659F-4E19-9C7C-DB54BFB1914D}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D8A1A01F-B9EF-425B-922C-BE32FEFA35F6} = {D8A1A01F-B9EF-425B-922C-BE32FEFA35F6}
 	EndProjectSection

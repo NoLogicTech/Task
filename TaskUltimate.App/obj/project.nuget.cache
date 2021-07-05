@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PaGnt0PrRJP3ZX7Bom6qzj6trYeaqgATrXdJlMSJGm9tK0f8narR30t6K8onAMTP4hbUalXAOlBcWLgNuBWWrg==",
+  "dgSpecHash": "erJzav9F5i3HJ1m4tgxNlSNCQgFY0joufM3fxMFp99F/2YNSgdIEOyn0Ft5jLDSZyZsU+jfFVIx+pmSZAmRbSw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\NoLogicTech\\source\\repos\\TaskUltimate\\TaskUltimate.App\\TaskUltimate.App.csproj",
+  "projectFilePath": "C:\\Users\\NoLogicTech\\Documents\\GitHub\\Task\\TaskUltimate.App\\TaskUltimate.App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NoLogicTech\\.nuget\\packages\\microsoft.aspnetcore.authorization\\3.1.0\\microsoft.aspnetcore.authorization.3.1.0.nupkg.sha512",
     "C:\\Users\\NoLogicTech\\.nuget\\packages\\microsoft.aspnetcore.components\\3.1.0\\microsoft.aspnetcore.components.3.1.0.nupkg.sha512",

@@ -1,62 +1,89 @@
-﻿<EditForm Model="tarefa" OnValidSubmit="Submit">
-    <div class="table">
-        <div class="row">
-            <div class="col-auto">
-                <h3>Projeto*</h3>
-                <InputNumber @bind-Value="tarefa.ProjetoId"></InputNumber>
+﻿<style>
+    .labelForm {
+        font-size: 14pt;
+        color: #fff8f0;
+    }
+
+    .formInput {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+        background-color: rgba(255, 255, 255, 0);
+        border-bottom: 2px solid #fff8f0;
+        color: #fff8f0;
+        margin-top:4px;
+        margin-bottom:4px;
+    }
+
+    #ContainerFormulario {
+        background-color: rgba(46, 94, 170);
+        border-radius:20px;
+        padding:10px;
+    }
+</style>
+<div class="container">
+    <EditForm Model="tarefa" OnValidSubmit="Submit" id="ContainerFormulario">
+        <div class="table">
+            <div class="row">
+                @if (ProjetoId == 0)
+                {
+                    <div class="col-4">
+                        <label class="labelForm" for="ProjetoId">Projeto: </label>
+                        <InputNumber class="formInput" id="projetoId" @bind-Value="tarefa.ProjetoId"></InputNumber>
+                    </div>
+                }
+                <div class="col-8">
+                    <label class="labelForm" for="nomeTarefa">Nome: </label>
+                    <InputText id="nomeTarefa" class="formInput" @bind-Value="tarefa.TarefaNome"></InputText>
+                </div>
             </div>
 
-            <div class="col-auto">
-                <h3>Nome*</h3>
-                <InputText @bind-Value="tarefa.TarefaNome"></InputText>
+            <div col="row">
+                <div class="col-auto">
+                    <label class="labelForm" for="responsavel">Responsavel: </label>
+                    <InputNumber id="responsavel" class="formInput" @bind-Value="tarefa.UtilizadorIdatribuido"></InputNumber>
+                </div>
+
+                <div class="col-auto">
+                    <label class="labelForm" for="posicao">Posicao: </label>
+                    <InputNumber id="posicao" class="formInput" @bind-Value="tarefa.TarefaPosicao"></InputNumber>
+                </div>
+
+                <div class="col-auto">
+                    <label class="labelForm" for="dataLimite">Data: </label>
+                    <InputDate class="formInput" id="dataLimite" @bind-Value="tarefa.TarefaDatalimite"></InputDate>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-auto">
+                    <label class="labelForm" for="criador">Criador</label>
+                    <InputNumber class="formInput" id="criador" @bind-Value="tarefa.UtilizadorIdcriador"></InputNumber>
+                </div>
+
+                <div class="col-auto">
+                    <label class="labelForm" for="estado">Tarefa Estado</label>
+                    <InputCheckbox class="formInput" id="estado" @bind-Value="tarefa.TarefaEstado"></InputCheckbox>
+                </div>
+
+                <div class="col-auto">
+                    <label class="labelForm" for="filho">Filho</label>
+                    <InputCheckbox id="filho" class="formInput" @bind-Value="tarefa.TarefaTemfilho"></InputCheckbox>
+                </div>
+                <div class="col-auto">
+                    <button type="submit">ok</button>
+                </div>
             </div>
         </div>
 
-        <div col="row">
-
-            <div class="col-auto">
-                <h3>Data limite*</h3>
-                <InputDate @bind-Value="tarefa.TarefaDatalimite"></InputDate>
-            </div>
-
-            <div class="col-auto">
-                <h3>Posisao*</h3>
-                <InputNumber @bind-Value="tarefa.TarefaPosicao"></InputNumber>
-            </div>
-         </div>
-        
-
-        <div class="row">
-            <div class="col-auto">
-                <h3>Id criador*</h3>
-                <InputNumber @bind-Value="tarefa.UtilizadorIdcriador"></InputNumber>
-            </div>
-
-            <div class="col-auto">
-                <h3>Utilizador atribuido*</h3>
-                <InputNumber @bind-Value="tarefa.UtilizadorIdatribuido"></InputNumber>
-            </div>
-
-            <div class="col-auto">
-                <h3>Tarefa Estado*</h3>
-                <InputCheckbox @bind-Value="tarefa.TarefaEstado"></InputCheckbox>
-            </div>
-
-            <div class="col-auto">
-                <h3>Tem filho*</h3>
-                <InputCheckbox @bind-Value="tarefa.TarefaTemfilho"></InputCheckbox>
-            </div>
-            <div class="col-auto">
-                <button type="submit">ok</button>
-            </div>
-        </div>  
-    </div>
-    
-</EditForm>
-
+    </EditForm>
+</div>
 @code {     
     [Parameter]
     public Tarefa tarefa { get; set; } = new Tarefa();
+
+    [Parameter]
+    public int ProjetoId { get; set; }
 
     [Parameter]
     public bool Sub { get; set; }
@@ -70,8 +97,9 @@
         }
         else
         {
+
             tarefa.TarefaDatahoraregisto=  DateTime.Now;
-            await apiTarefa.Post(tarefa);
+            await apiService.apiTarefa.Post(tarefa);
             StateHasChanged();
         }
 
@@ -81,6 +109,7 @@
     {
         if (!Sub)
         {
+            tarefa.ProjetoId = ProjetoId;
             tarefa.TarefaDatalimite = DateTime.Now;
         }
         return base.OnInitializedAsync();
