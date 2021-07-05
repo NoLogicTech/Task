@@ -2616,6 +2616,21 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "TaskUltimate/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.1.14",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.14",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.5"
+        },
+        "compile": {
+          "bin/placeholder/TaskUltimate.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TaskUltimate.dll": {}
+        }
       }
     }
   },
@@ -8553,6 +8568,11 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "TaskUltimate/1.0.0": {
+      "type": "project",
+      "path": "../../../../../source/repos/TaskUltimate/TaskUltimate/TaskUltimate.csproj",
+      "msbuildProject": "../../../../../source/repos/TaskUltimate/TaskUltimate/TaskUltimate.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -8561,7 +8581,8 @@
       "Microsoft.EntityFrameworkCore >= 3.1.14",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.14",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.14",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5",
+      "TaskUltimate >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -8595,7 +8616,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\NoLogicTech\\source\\repos\\TaskUltimate\\TaskUltimate\\TaskUltimate.csproj": {
+              "projectPath": "C:\\Users\\NoLogicTech\\source\\repos\\TaskUltimate\\TaskUltimate\\TaskUltimate.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
