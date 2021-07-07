@@ -55,6 +55,33 @@ namespace Gestor.Api.Controllers
             return projeto;
         }
 
+        [HttpGet("filho/{id}")]
+        public List<Tarefa> GetFilho(int id)
+        {
+            List<Tarefa> herdeiros = new List<Tarefa>();
+            if(_context.Tarefa.Find(id) != null)
+            {
+                foreach(Tarefa elemento in _context.Tarefa.ToList())
+                {
+                    if(elemento.TarefaParentid == id)
+                        herdeiros.Add(elemento);
+                }
+            }
+            return herdeiros;
+        }
+        [HttpGet("parentbyproject/{id}")]
+        public List<Tarefa> GetParentByProject(int id)
+        {
+            List<Tarefa> elementos = GetbyProject(id);
+            List<Tarefa> parentes = new List<Tarefa>();
+            foreach(Tarefa elemento in elementos)
+            {
+                if (elemento.TarefaParentid == 0 | elemento.TarefaParentid == null)
+                    parentes.Add(elemento);
+            }
+            return parentes;
+        }
+
         // POST api/<TarefasController>
         [HttpPost]
         public async Task Post([FromBody] Tarefa value)

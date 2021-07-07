@@ -118,10 +118,13 @@ using TaskUltimate.App.Componentes;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 38 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\CardTarefa.razor"
+#line 70 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\CardTarefa.razor"
        
     [Parameter]
     public Tarefa tarefa { get; set; } = new Tarefa();
+    public Tarefa filho { get; set; } = new Tarefa();
+    public List<Tarefa> filhos { get; set; } = new List<Tarefa>();
+    private bool renderFilho { get; set; }
 
     public async Task Alterar()
     {
@@ -148,7 +151,7 @@ using TaskUltimate.App.Componentes;
     </div>");
         }
 #nullable restore
-#line 58 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\CardTarefa.razor"
+#line 93 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\CardTarefa.razor"
           , new DialogOptions() {Style = "min-height:auto;min-width:auto;width:auto" });
         StateHasChanged();
     }
@@ -163,6 +166,27 @@ using TaskUltimate.App.Componentes;
     {
         await apiTarefa.PutAsync(tarefa.TarefaId, tarefa);
         StateHasChanged();
+    }
+
+    private async Task AdicionarFilho()
+    {
+        filho.UtilizadorIdatribuido = tarefa.UtilizadorIdatribuido;
+        await dialogService.OpenAsync<FormTarefa>("Adicionar Filho", new Dictionary<string, object> { { "tarefa", filho }, {"Parente", tarefa }, { "Descendente", true } }, new DialogOptions() { Style = "min-height:auto;min-width:auto;width:auto" });
+        StateHasChanged();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if(tarefa.TarefaTemfilho)
+            filhos = await apiService.apiTarefa.GetFilho(tarefa.TarefaId);
+    }
+
+    private void MostrarFilho()
+    {
+        if (renderFilho)
+            renderFilho = false;
+        else
+            renderFilho = true;
     }
 
 #line default

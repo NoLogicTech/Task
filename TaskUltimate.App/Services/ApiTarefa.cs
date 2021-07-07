@@ -54,6 +54,29 @@ namespace TaskUltimate.App.Services
             return await JsonSerializer.DeserializeAsync<List<Tarefa>>(responseStream, options);
         }
 
+        public async Task<List<Tarefa>> GetParentByProject(int id){
+            var result = await _httpClient.GetAsync($"api/tarefas/parentbyproject/{id}");
+            using var responseStream = await result.Content.ReadAsStreamAsync();
+            var options = new JsonSerializerOptions()
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
+
+            return await JsonSerializer.DeserializeAsync<List<Tarefa>>(responseStream, options);
+        }
+
+        public async Task<List<Tarefa>> GetFilho(int id)
+        {
+            var result = await _httpClient.GetAsync($"api/tarefas/filho/{id}");
+            using var responseStream = await result.Content.ReadAsStreamAsync();
+            var options = new JsonSerializerOptions()
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
+
+            return await JsonSerializer.DeserializeAsync<List<Tarefa>>(responseStream, options);
+        }
+
         public async Task PutAsync(int id, Tarefa trf)
         {
             await _httpClient.PutAsJsonAsync<Tarefa>($"api/tarefas/{id}", trf);

@@ -1,26 +1,27 @@
 ﻿<style>
     .labelForm {
         font-size: 14pt;
-        color: #fff8f0;
+        color: #000000;
     }
 
     .formInput {
         box-shadow: 0 0 0 0;
         border: 0 none;
         outline: 0;
-        background-color: rgba(255, 255, 255, 0);
-        border-bottom: 2px solid #fff8f0;
-        color: #fff8f0;
-        margin-top:4px;
-        margin-bottom:4px;
+        background-color: #F5F5F5;
+        border-bottom: 2px solid #000000;
+        color: #000000;
+        margin-top: 4px;
+        margin-bottom: 4px;
     }
 
     #ContainerFormulario {
-        background-color: rgba(46, 94, 170);
-        border-radius:20px;
-        padding:10px;
+        background-color: #F5F5F5;
+        border-radius: 10px;
+        padding: 10px;
     }
 </style>
+
 <div class="container">
     <EditForm Model="tarefa" OnValidSubmit="Submit" id="ContainerFormulario">
         <div class="table">
@@ -88,6 +89,12 @@
     [Parameter]
     public bool Sub { get; set; }
 
+    [Parameter]
+    public bool Descendente { get; set; }
+
+    [Parameter]
+    public Tarefa Parente { get; set; } = new Tarefa();
+
     public async Task Submit()
     {
         if (Sub)
@@ -97,19 +104,30 @@
         }
         else
         {
+            if (Descendente & Parente.TarefaId != 0)
+            {
+                tarefa.TarefaParentid = Parente.TarefaId;
+                Parente.TarefaTemfilho = true;
+                tarefa.ProjetoId = Parente.ProjetoId;
+                await apiService.apiTarefa.PutAsync(Parente.TarefaId, Parente);
+            }
+            else
+            {
+                tarefa.ProjetoId = ProjetoId;
+            }
 
             tarefa.TarefaDatahoraregisto=  DateTime.Now;
             await apiService.apiTarefa.Post(tarefa);
             StateHasChanged();
         }
-
     }
 
     protected override Task OnInitializedAsync()
     {
         if (!Sub)
         {
-            tarefa.ProjetoId = ProjetoId;
+            if(tarefa.ProjetoId == 0)
+                tarefa.ProjetoId = ProjetoId;
             tarefa.TarefaDatalimite = DateTime.Now;
         }
         return base.OnInitializedAsync();

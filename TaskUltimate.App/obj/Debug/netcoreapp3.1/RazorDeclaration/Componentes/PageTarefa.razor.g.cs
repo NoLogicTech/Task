@@ -119,12 +119,15 @@ using TaskUltimate.App.Componentes;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 55 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\PageTarefa.razor"
+#line 59 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\PageTarefa.razor"
       
-        public List<Tarefa> temp { get; set; } = new List<Tarefa>();
+    public List<Tarefa> temp { get; set; }
 
-        [Parameter]
-        public string ProjetoId { get; set; }
+    [Parameter]
+    public string ProjetoId { get; set; }
+
+    [Parameter]
+    public int ParenteId { get; set; }
 
     string dropMessage = null;
 
@@ -139,7 +142,10 @@ using TaskUltimate.App.Componentes;
 
     protected override async Task OnInitializedAsync()
     {
-        temp = await apiService.apiTarefa.GetForProjectIdAsync(Convert.ToInt32(ProjetoId));
+        if (ParenteId != 0)
+            temp = await apiService.apiTarefa.GetFilho(ParenteId);
+        else
+            temp = await apiService.apiTarefa.GetParentByProject(Convert.ToInt32(ProjetoId));
 
         // se existe algum projeto com a mesma chave do contador ela é ordenada
         temp.Sort(delegate (Tarefa p1, Tarefa p2)

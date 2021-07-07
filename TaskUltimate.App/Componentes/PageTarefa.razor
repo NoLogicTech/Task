@@ -1,5 +1,6 @@
 ﻿@page "/pagetarefa/{ProjetoId}"
-<FormTarefa ProjetoId="Convert.ToInt32(ProjetoId)"/>
+<FormTarefa ProjetoId="Convert.ToInt32(ProjetoId)" />
+
 <style>
     .draggable {
         border: 1px solid #ccc;
@@ -25,11 +26,14 @@ else
 {
     @foreach (Tarefa elemento in temp)
     {
-        <Draggable Data="@elemento">
-            <div class="draggable">
-                <CardTarefa tarefa="@elemento"></CardTarefa>
-            </div>
-        </Draggable>
+        @*<Draggable Data="@elemento">
+                <div class="draggable">
+                    <CardTarefa tarefa="@elemento"></CardTarefa>
+                </div>
+            </Draggable> *@
+
+
+        <CardTarefa tarefa="@elemento"></CardTarefa>
     }
 }
 
@@ -53,10 +57,13 @@ else
     </div>
 </DropTarget>
 @code{
-        public List<Tarefa> temp { get; set; } = new List<Tarefa>();
+    public List<Tarefa> temp { get; set; }
 
-        [Parameter]
-        public string ProjetoId { get; set; }
+    [Parameter]
+    public string ProjetoId { get; set; }
+
+    [Parameter]
+    public int ParenteId { get; set; }
 
     string dropMessage = null;
 
@@ -71,7 +78,10 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        temp = await apiService.apiTarefa.GetForProjectIdAsync(Convert.ToInt32(ProjetoId));
+        if (ParenteId != 0)
+            temp = await apiService.apiTarefa.GetFilho(ParenteId);
+        else
+            temp = await apiService.apiTarefa.GetParentByProject(Convert.ToInt32(ProjetoId));
 
         // se existe algum projeto com a mesma chave do contador ela é ordenada
         temp.Sort(delegate (Tarefa p1, Tarefa p2)

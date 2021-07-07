@@ -118,7 +118,7 @@ using TaskUltimate.App.Componentes;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 81 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\FormTarefa.razor"
+#line 82 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\FormTarefa.razor"
             
     [Parameter]
     public Tarefa tarefa { get; set; } = new Tarefa();
@@ -129,6 +129,12 @@ using TaskUltimate.App.Componentes;
     [Parameter]
     public bool Sub { get; set; }
 
+    [Parameter]
+    public bool Descendente { get; set; }
+
+    [Parameter]
+    public Tarefa Parente { get; set; } = new Tarefa();
+
     public async Task Submit()
     {
         if (Sub)
@@ -138,19 +144,30 @@ using TaskUltimate.App.Componentes;
         }
         else
         {
+            if (Descendente & Parente.TarefaId != 0)
+            {
+                tarefa.TarefaParentid = Parente.TarefaId;
+                Parente.TarefaTemfilho = true;
+                tarefa.ProjetoId = Parente.ProjetoId;
+                await apiService.apiTarefa.PutAsync(Parente.TarefaId, Parente);
+            }
+            else
+            {
+                tarefa.ProjetoId = ProjetoId;
+            }
 
             tarefa.TarefaDatahoraregisto=  DateTime.Now;
             await apiService.apiTarefa.Post(tarefa);
             StateHasChanged();
         }
-
     }
 
     protected override Task OnInitializedAsync()
     {
         if (!Sub)
         {
-            tarefa.ProjetoId = ProjetoId;
+            if(tarefa.ProjetoId == 0)
+                tarefa.ProjetoId = ProjetoId;
             tarefa.TarefaDatalimite = DateTime.Now;
         }
         return base.OnInitializedAsync();

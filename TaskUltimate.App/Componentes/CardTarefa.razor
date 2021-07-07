@@ -8,36 +8,71 @@
         background-color: rgba(43, 45, 66, .2);
         border-radius: 3px;
     }
+
+    .filho{
+        padding-right:20px;
+    }
+
+    .draggable {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 1rem;
+        padding: 1rem;
+        display: inline-block;
+        cursor: move;
+    }
 </style>
-<div class="table">
-    <div class="row">
-        <div class="col-auto">
-            <input type="text" class="inserir" @bind="@tarefa.TarefaNome" @bind:event="oninput" @onkeyup="@(async () => { await Atualizar(); })" />
+<Draggable Data="@tarefa">
+    <div class="table">
+        <div class="row">
+            <div class="col-auto">
+                <label for="tarefaNome">Nome:</label>
+                <input type="text" id="tarefaNome" class="inserir" @bind="@tarefa.TarefaNome" @bind:event="oninput" @onkeyup="@(async () => { await Atualizar(); })" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-auto">
+                <label for="dataLimite">Entregar:</label>
+                <input id="dataLimite" type="date" class="inserir" @bind="@tarefa.TarefaDatalimite" @bind:event="oninput" @onkeyup="@(async () => { await Atualizar(); })" />
+            </div>
+
+            <div class="col-auto">
+                <label for="tarefaEstado">Feito:</label>
+                <input id="tarefaEstado" type="checkbox" @bind="@tarefa.TarefaEstado" @bind:event="oninput" @onkeyup="@(async () => { await Atualizar(); })" />
+            </div>
+
+            <div class="col-auto">
+                <label for="utilizadorIdatribuido">Resposnsavel:</label>
+                <input id="utilizadorIdatribuido" type="number" class="inserir" @bind="@tarefa.UtilizadorIdatribuido" @bind:event="oninput" @onkeyup="@(async () => { await Atualizar(); })" />
+            </div>
+
+            <div class="col-auto">
+                <RadzenButton Click=@(() =>Alterar()) Text="Alterar" Style="background-color: #DE8A02; "></RadzenButton>
+                <RadzenButton Click=@(() => Confirmar()) Text="Deletar" Style="background-color:darkred;"></RadzenButton>
+                <RadzenButton Click=@(() => AdicionarFilho()) Text="Adicionar filho" Style="background-color:darkred;"></RadzenButton>
+                <RadzenButton Click=@(() => MostrarFilho()) Text="Mostrar Filho" Style="background-color:darkred;"></RadzenButton>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-auto">
-            <input type="date" class="inserir" @bind="@tarefa.TarefaDatalimite" @bind:event="oninput" @onkeyup="@(async () => { await Atualizar(); })" />
-        </div>
+</Draggable>
 
-        <div class="col-auto">
-            <input type="checkbox" @bind="@tarefa.TarefaEstado" @bind:event="oninput" @onkeyup="@(async () => { await Atualizar(); })" />
-        </div>
 
-        <div class="col-auto">
-            <input type="number" class="inserir" @bind="@tarefa.UtilizadorIdatribuido" @bind:event="oninput" @onkeyup="@(async () => { await Atualizar(); })" />
-        </div>
-
-        <div class="col-auto">
-            <RadzenButton Click=@(() =>Alterar()) Text="Alterar"></RadzenButton>
-            <RadzenButton Click=@(() => Confirmar()) Text="Deletar" Style="background-color:darkred;"></RadzenButton>
-        </div>
-    </div>
+<div class="container filho">
+    @if (tarefa.TarefaTemfilho & renderFilho)
+    {
+        @foreach (Tarefa elemento in filhos)
+        {
+            <CardTarefa tarefa="elemento"></CardTarefa>
+        }
+    }
 </div>
 
 @code {
     [Parameter]
     public Tarefa tarefa { get; set; } = new Tarefa();
+    public Tarefa filho { get; set; } = new Tarefa();
+    public List<Tarefa> filhos { get; set; } = new List<Tarefa>();
+    private bool renderFilho { get; set; }
 
     public async Task Alterar()
     {
@@ -69,5 +104,26 @@
     {
         await apiTarefa.PutAsync(tarefa.TarefaId, tarefa);
         StateHasChanged();
+    }
+
+    private async Task AdicionarFilho()
+    {
+        filho.UtilizadorIdatribuido = tarefa.UtilizadorIdatribuido;
+        await dialogService.OpenAsync<FormTarefa>("Adicionar Filho", new Dictionary<string, object> { { "tarefa", filho }, {"Parente", tarefa }, { "Descendente", true } }, new DialogOptions() { Style = "min-height:auto;min-width:auto;width:auto" });
+        StateHasChanged();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if(tarefa.TarefaTemfilho)
+            filhos = await apiService.apiTarefa.GetFilho(tarefa.TarefaId);
+    }
+
+    private void MostrarFilho()
+    {
+        if (renderFilho)
+            renderFilho = false;
+        else
+            renderFilho = true;
     }
 }
