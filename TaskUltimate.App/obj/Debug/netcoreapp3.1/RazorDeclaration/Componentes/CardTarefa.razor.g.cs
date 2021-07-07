@@ -118,7 +118,7 @@ using TaskUltimate.App.Componentes;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 99 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\CardTarefa.razor"
+#line 103 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\CardTarefa.razor"
        
     [Parameter]
     public Tarefa tarefa { get; set; } = new Tarefa();
@@ -151,43 +151,51 @@ using TaskUltimate.App.Componentes;
     </div>");
         }
 #nullable restore
-#line 122 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\CardTarefa.razor"
-          , new DialogOptions() {Style = "min-height:auto;min-width:auto;width:auto" });
-        StateHasChanged();
-    }
+#line 126 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\CardTarefa.razor"
+          , new DialogOptions() { Style = "min-height:auto;min-width:auto;width:auto" });
+  StateHasChanged();
+}
 
-    public async Task Deletar()
-    {
-        await apiTarefa.Delete(tarefa.TarefaId);
-        StateHasChanged();
-    }
+public async Task Deletar()
+{
+  await apiTarefa.Delete(tarefa.TarefaId);
+  StateHasChanged();
+}
 
-    private async Task Atualizar()
-    {
-        await apiTarefa.PutAsync(tarefa.TarefaId, tarefa);
-        StateHasChanged();
-    }
+private async Task Atualizar()
+{
+  await apiTarefa.PutAsync(tarefa.TarefaId, tarefa);
+  StateHasChanged();
+}
 
-    private async Task AdicionarFilho()
-    {
-        filho.UtilizadorIdatribuido = tarefa.UtilizadorIdatribuido;
-        await dialogService.OpenAsync<FormTarefa>("Adicionar Filho", new Dictionary<string, object> { { "tarefa", filho }, {"Parente", tarefa }, { "Descendente", true } }, new DialogOptions() { Style = "min-height:auto;min-width:auto;width:auto" });
-        StateHasChanged();
-    }
+private async Task AdicionarFilho()
+{
+  filho.UtilizadorIdatribuido = tarefa.UtilizadorIdatribuido;
+  await dialogService.OpenAsync<FormTarefa>("Adicionar Filho", new Dictionary<string, object> { { "tarefa", filho }, { "Parente", tarefa }, { "Descendente", true } }, new DialogOptions() { Style = "min-height:auto;min-width:auto;width:auto" });
+  StateHasChanged();
+}
 
-    protected override async Task OnInitializedAsync()
-    {
-        if(tarefa.TarefaTemfilho)
-            filhos = await apiService.apiTarefa.GetFilho(tarefa.TarefaId);
-    }
+protected override async Task OnInitializedAsync()
+{
+  if (tarefa.TarefaTemfilho)
+      filhos = await apiService.apiTarefa.GetFilho(tarefa.TarefaId);
+}
 
-    private void MostrarFilho()
-    {
-        if (renderFilho)
-            renderFilho = false;
-        else
-            renderFilho = true;
-    }
+private void MostrarFilho()
+{
+  if (renderFilho)
+      renderFilho = false;
+  else
+      renderFilho = true;
+}
+
+public async Task OnDrop(Tarefa data)
+{
+  data.ProjetoId = tarefa.ProjetoId;
+  await apiService.apiTarefa.InsertAsync(data.TarefaId, tarefa.TarefaPosicao, data);
+  // Important: Invoke StateHasChanged() to update the page
+  StateHasChanged();
+}
 
 #line default
 #line hidden

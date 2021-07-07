@@ -116,7 +116,7 @@ namespace Gestor.Api.Controllers
                 tarefas.Insert(posicao - 1, value);
                 foreach (Tarefa elemento in tarefas)
                 {
-                    if (elemento.TarefaPosicao > posicao & elemento.TarefaPosicao < ultimaposicao & elemento.TarefaId != value.TarefaId)
+                    if (elemento.TarefaPosicao >= posicao & elemento.TarefaPosicao <= ultimaposicao & elemento.TarefaId != value.TarefaId)
                     {
                         if (posicao - ultimaposicao > 0)
                             elemento.TarefaPosicao -= 1;
