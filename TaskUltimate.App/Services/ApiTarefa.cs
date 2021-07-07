@@ -82,6 +82,11 @@ namespace TaskUltimate.App.Services
             await _httpClient.PutAsJsonAsync<Tarefa>($"api/tarefas/{id}", trf);
         }
 
+        public async Task InsertAsync(int id, int posicao, Tarefa trf)
+        {
+            await _httpClient.PutAsJsonAsync<Tarefa>($"api/tarefas/{id}/{posicao}", trf);
+        }
+
         public async Task Post(Tarefa trf)
         {
             await _httpClient.PostAsJsonAsync<Tarefa>("api/tarefas/", trf);

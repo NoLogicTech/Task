@@ -119,7 +119,7 @@ using TaskUltimate.App.Componentes;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 59 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\PageTarefa.razor"
+#line 55 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\PageTarefa.razor"
       
     public List<Tarefa> temp { get; set; }
 
@@ -131,11 +131,10 @@ using TaskUltimate.App.Componentes;
 
     string dropMessage = null;
 
-    public async void OnDrop(Tarefa data)
+    public async Task OnDrop(Tarefa data)
     {
         dropMessage = $"Dropped: {data}";
-        data.TarefaPosicao += 1;
-        await apiTarefa.PutAsync(data.TarefaId, data);
+        await apiService.apiTarefa.InsertAsync(data.TarefaId, 1, data);
         // Important: Invoke StateHasChanged() to update the page
         StateHasChanged();
     }

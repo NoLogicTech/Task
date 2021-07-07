@@ -101,6 +101,32 @@ namespace Gestor.Api.Controllers
                 await _context.SaveChangesAsync();
             }
         }
+        [HttpPut("{id}/{posicao}")]
+        public async Task Insert(int id, int posicao, [FromBody] Tarefa value)
+        {
+            List<Tarefa> tarefas;
+            int ultimaposicao = value.TarefaPosicao;
+            value.TarefaPosicao = posicao;
+            await Put(value.TarefaId, value);
+
+            if (id == value.TarefaId)
+            {
+                tarefas = _context.Tarefa.ToList();
+                
+                tarefas.Insert(posicao - 1, value);
+                foreach (Tarefa elemento in tarefas)
+                {
+                    if (elemento.TarefaPosicao > posicao & elemento.TarefaPosicao < ultimaposicao & elemento.TarefaId != value.TarefaId)
+                    {
+                        if (posicao - ultimaposicao > 0)
+                            elemento.TarefaPosicao -= 1;
+                        else
+                            elemento.TarefaPosicao += 1;
+                        await Put(elemento.TarefaId, elemento);
+                    }
+                }
+            }
+        }
 
         // DELETE api/<TarefasController>/5
         [HttpDelete("{id}")]

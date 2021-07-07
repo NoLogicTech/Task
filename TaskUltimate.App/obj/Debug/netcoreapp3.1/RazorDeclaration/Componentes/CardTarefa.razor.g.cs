@@ -118,7 +118,7 @@ using TaskUltimate.App.Componentes;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 70 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\CardTarefa.razor"
+#line 99 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\CardTarefa.razor"
        
     [Parameter]
     public Tarefa tarefa { get; set; } = new Tarefa();
@@ -151,7 +151,7 @@ using TaskUltimate.App.Componentes;
     </div>");
         }
 #nullable restore
-#line 93 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\CardTarefa.razor"
+#line 122 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.App\Componentes\CardTarefa.razor"
           , new DialogOptions() {Style = "min-height:auto;min-width:auto;width:auto" });
         StateHasChanged();
     }

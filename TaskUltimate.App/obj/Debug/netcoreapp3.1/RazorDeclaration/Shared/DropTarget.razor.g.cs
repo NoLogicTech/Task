@@ -133,19 +133,14 @@ using TaskUltimate.App.Data;
     [Parameter]
     public string Zone { get; set; }
 
-    //[Parameter]
-    //public Action<T> Drop { get; set; }
+    [Parameter]
+    public Action<T> Drop { get; set; }
 
-    async Task OnDrop()
+    void OnDrop()
     {
-        // Drop != null &&
-        // 
-        if ( DragAndDropService.Accepts(Zone))
+        if (Drop != null && DragAndDropService.Accepts(Zone))
         {
-            Tarefa trf = (Tarefa)DragAndDropService.Data;
-            trf.TarefaPosicao += 1;
-            //Drop((T)DragAndDropService.Data);
-            await apiTarefa.PutAsync(trf.TarefaId, trf);
+            Drop((T)DragAndDropService.Data);
         }
     }
 

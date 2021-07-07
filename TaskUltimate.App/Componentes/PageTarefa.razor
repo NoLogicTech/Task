@@ -30,16 +30,12 @@ else
                 <div class="draggable">
                     <CardTarefa tarefa="@elemento"></CardTarefa>
                 </div>
-            </Draggable> *@
-
-
+          </Draggable> *@
         <CardTarefa tarefa="@elemento"></CardTarefa>
     }
 }
 
-
-
-<DropTarget T="Tarefa">
+<DropTarget T="Tarefa" Drop="@(async (data) => await OnDrop(data))">
     @*Drop="@OnDrop"*@
     <div class="drop-target">
         Accepts Draggable A or B
@@ -67,11 +63,10 @@ else
 
     string dropMessage = null;
 
-    public async void OnDrop(Tarefa data)
+    public async Task OnDrop(Tarefa data)
     {
         dropMessage = $"Dropped: {data}";
-        data.TarefaPosicao += 1;
-        await apiTarefa.PutAsync(data.TarefaId, data);
+        await apiService.apiTarefa.InsertAsync(data.TarefaId, 1, data);
         // Important: Invoke StateHasChanged() to update the page
         StateHasChanged();
     }
