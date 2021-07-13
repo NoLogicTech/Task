@@ -86,9 +86,12 @@ namespace TaskUltimate.Api.Controllers
         [HttpPost]
         public async Task Post([FromBody] Tarefa value)
         {
-            Console.WriteLine("cheu aqui");
             _context.Tarefa.Add(value);
             await _context.SaveChangesAsync();
+
+            int posicao = value.TarefaPosicao ?? 0;
+            value.TarefaPosicao = 0;
+            await Insert(value.TarefaId, posicao, value);
         }
 
         // PUT api/<TarefasController>/5
@@ -120,7 +123,7 @@ namespace TaskUltimate.Api.Controllers
                     {
                         if (posicao - ultimaposicao > 0)
                             elemento.TarefaPosicao -= 1;
-                        else
+                        else if(posicao - ultimaposicao <= 0)
                             elemento.TarefaPosicao += 1;
                         await Put(elemento.TarefaId, elemento);
                     }
