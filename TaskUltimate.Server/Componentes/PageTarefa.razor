@@ -26,32 +26,15 @@ else
 {
     @foreach (Tarefa elemento in temp)
     {
-        @*<Draggable Data="@elemento">
-                <div class="draggable">
-                    <CardTarefa tarefa="@elemento"></CardTarefa>
-                </div>
-          </Draggable> *@
         <CardTarefa tarefa="@elemento"></CardTarefa>
     }
 }
-
-<DropTarget T="Tarefa" Drop="@(async (data) => await OnDrop(data))">
-    @*Drop="@OnDrop"*@
-    <div class="drop-target">
-        Accepts Draggable A or B
-    </div>
-</DropTarget>
 
 @if (dropMessage != null)
 {
     @dropMessage
 }
 
-<DropTarget T="Tarefa" Zone="DropZone">
-    <div class="drop-target">
-        Can't drop here
-    </div>
-</DropTarget>
 @code{
     public List<Tarefa> temp { get; set; }
 

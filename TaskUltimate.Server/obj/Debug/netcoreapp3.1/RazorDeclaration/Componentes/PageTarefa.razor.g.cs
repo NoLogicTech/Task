@@ -139,7 +139,7 @@ using System;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 55 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.Server\Componentes\PageTarefa.razor"
+#line 38 "C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimate.Server\Componentes\PageTarefa.razor"
       
     public List<Tarefa> temp { get; set; }
 

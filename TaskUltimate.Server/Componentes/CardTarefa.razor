@@ -93,10 +93,15 @@
 <div class="container filho">
     @if (tarefa.TarefaTemfilho & renderFilho)
     {
+        filhos.Sort(delegate (Tarefa p1, Tarefa p2)
+        {
+            return $"{p1.TarefaPosicao}".CompareTo($"{p2.TarefaPosicao}");
+        });
         @foreach (Tarefa elemento in filhos)
         {
             <CardTarefa tarefa="elemento"></CardTarefa>
         }
+        
     }
 </div>
 

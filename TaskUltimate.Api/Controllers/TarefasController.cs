@@ -114,12 +114,12 @@ namespace TaskUltimate.Api.Controllers
 
             if (id == value.TarefaId)
             {
-                tarefas = _context.Tarefa.ToList();
+                tarefas = await GetbyProject(value.ProjetoId);
                 
                 tarefas.Insert(posicao - 1, value);
                 foreach (Tarefa elemento in tarefas)
                 {
-                    if (elemento.TarefaPosicao >= posicao & elemento.TarefaPosicao <= ultimaposicao & elemento.TarefaId != value.TarefaId)
+                    if (elemento.TarefaPosicao >= posicao & elemento.TarefaPosicao <= ultimaposicao & elemento.TarefaId != value.TarefaId & value.TarefaParentid == elemento.TarefaParentid)
                     {
                         if (posicao - ultimaposicao > 0)
                             elemento.TarefaPosicao -= 1;
