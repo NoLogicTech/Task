@@ -2616,21 +2616,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "TaskUltimate/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "3.1.14",
-          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.14",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.5"
-        },
-        "compile": {
-          "bin/placeholder/TaskUltimate.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TaskUltimate.dll": {}
-        }
       }
     }
   },
@@ -8568,21 +8553,16 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
-    },
-    "TaskUltimate/1.0.0": {
-      "type": "project",
-      "path": "../../../../../source/repos/TaskUltimate/TaskUltimate/TaskUltimate.csproj",
-      "msbuildProject": "../../../../../source/repos/TaskUltimate/TaskUltimate/TaskUltimate.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "C:\\Users\\NoLogicTech\\source\\repos\\TaskUltimate\\TaskUltimate\\TaskUltimate.csproj",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 3.0.0",
       "Microsoft.EntityFrameworkCore >= 3.1.14",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.14",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.14",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5",
-      "TaskUltimate >= 1.0.0"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5"
     ]
   },
   "packageFolders": {
@@ -8677,5 +8657,16 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1105",
+      "level": "Error",
+      "message": "Não é possível encontrar as informações do projeto para 'C:\\Users\\NoLogicTech\\source\\repos\\TaskUltimate\\TaskUltimate\\TaskUltimate.csproj'. Se você está usando o Visual Studio, isso pode ocorrer porque o projeto não está carregado ou não faz parte da solução atual. Portanto, execute uma restauração usando a linha de comando. Do contrário, o arquivo de projeto pode ser inválido ou pode haver destinos obrigatórios para a restauração ausentes.",
+      "libraryId": "C:\\Users\\NoLogicTech\\source\\repos\\TaskUltimate\\TaskUltimate\\TaskUltimate.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

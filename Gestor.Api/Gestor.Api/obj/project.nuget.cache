@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "FzPvrdIQ4C7Xq0ekKLiBhcPjCQE6BA/Ee7j2rJW4Iag3Zx6Fp51ATNES4YR/R7SI3O7usoUF3zLus1qfErF/8g==",
-  "success": true,
+  "dgSpecHash": "qZM8LeWFA7R591Ka/gtg+ad/OXcoOTCQXAVVAGf1DmH3lISITWFqAgh0agVr5D0/7YplD7GNkgzREfLF2qkEQw==",
+  "success": false,
   "projectFilePath": "C:\\Users\\NoLogicTech\\Documents\\GitHub\\Task\\Gestor.Api\\Gestor.Api\\Gestor.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NoLogicTech\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
@@ -167,5 +167,15 @@
     "C:\\Users\\NoLogicTech\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\NoLogicTech\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1105",
+      "level": "Error",
+      "message": "Não é possível encontrar as informações do projeto para 'C:\\Users\\NoLogicTech\\source\\repos\\TaskUltimate\\TaskUltimate\\TaskUltimate.csproj'. Se você está usando o Visual Studio, isso pode ocorrer porque o projeto não está carregado ou não faz parte da solução atual. Portanto, execute uma restauração usando a linha de comando. Do contrário, o arquivo de projeto pode ser inválido ou pode haver destinos obrigatórios para a restauração ausentes.",
+      "libraryId": "C:\\Users\\NoLogicTech\\source\\repos\\TaskUltimate\\TaskUltimate\\TaskUltimate.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

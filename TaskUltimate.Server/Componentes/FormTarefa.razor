@@ -1,0 +1,135 @@
+﻿<style>
+    .labelForm {
+        font-size: 14pt;
+        color: #000000;
+    }
+
+    .formInput {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+        background-color: #F5F5F5;
+        border-bottom: 2px solid #000000;
+        color: #000000;
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+
+    #ContainerFormulario {
+        background-color: #F5F5F5;
+        border-radius: 10px;
+        padding: 10px;
+    }
+</style>
+
+<div class="container">
+    <EditForm Model="tarefa" OnValidSubmit="Submit" id="ContainerFormulario">
+        <div class="table">
+            <div class="row">
+                @if (ProjetoId == 0)
+                {
+                    <div class="col-4">
+                        <label class="labelForm" for="ProjetoId">Projeto: </label>
+                        <InputNumber class="formInput" id="projetoId" @bind-Value="tarefa.ProjetoId"></InputNumber>
+                    </div>
+                }
+                <div class="col-8">
+                    <label class="labelForm" for="nomeTarefa">Nome: </label>
+                    <InputText id="nomeTarefa" class="formInput" @bind-Value="tarefa.TarefaNome"></InputText>
+                </div>
+            </div>
+
+            <div col="row">
+                <div class="col-auto">
+                    <label class="labelForm" for="responsavel">Responsavel: </label>
+                    <InputNumber id="responsavel" class="formInput" @bind-Value="tarefa.UtilizadorIdatribuido"></InputNumber>
+                </div>
+
+                <div class="col-auto">
+                    <label class="labelForm" for="posicao">Posicao: </label>
+                    <InputNumber id="posicao" class="formInput" @bind-Value="tarefa.TarefaPosicao"></InputNumber>
+                </div>
+
+                <div class="col-auto">
+                    <label class="labelForm" for="dataLimite">Data: </label>
+                    <InputDate class="formInput" id="dataLimite" @bind-Value="tarefa.TarefaDatalimite"></InputDate>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-auto">
+                    <label class="labelForm" for="criador">Criador</label>
+                    <InputNumber class="formInput" id="criador" @bind-Value="tarefa.UtilizadorIdcriador"></InputNumber>
+                </div>
+
+                <div class="col-auto">
+                    <label class="labelForm" for="estado">Tarefa Estado</label>
+                    <InputCheckbox class="formInput" id="estado" @bind-Value="tarefa.TarefaEstado"></InputCheckbox>
+                </div>
+
+                <div class="col-auto">
+                    <label class="labelForm" for="filho">Filho</label>
+                    <InputCheckbox id="filho" class="formInput" @bind-Value="tarefa.TarefaTemfilho"></InputCheckbox>
+                </div>
+                <div class="col-auto">
+                    <button type="submit">ok</button>
+                </div>
+            </div>
+        </div>
+
+    </EditForm>
+</div>
+@code {     
+    [Parameter]
+    public Tarefa tarefa { get; set; } = new Tarefa();
+
+    [Parameter]
+    public int ProjetoId { get; set; }
+
+    [Parameter]
+    public bool Sub { get; set; }
+
+    [Parameter]
+    public bool Descendente { get; set; }
+
+    [Parameter]
+    public Tarefa Parente { get; set; } = new Tarefa();
+
+    public async Task Submit()
+    {
+        if (Sub)
+        {
+            await apiService.apiTarefa.PutAsync(tarefa.TarefaId, tarefa);
+            StateHasChanged();
+        }
+        else
+        {
+            if (Descendente & Parente.TarefaId != 0)
+            {
+                tarefa.TarefaParentid = Parente.TarefaId;
+                Parente.TarefaTemfilho = true;
+                tarefa.ProjetoId = Parente.ProjetoId;
+                await apiService.apiTarefa.PutAsync(Parente.TarefaId, Parente);
+            }
+            else
+            {
+                tarefa.ProjetoId = ProjetoId;
+            }
+
+            tarefa.TarefaDatahoraregisto=  DateTime.Now;
+            await apiService.apiTarefa.Post(tarefa);
+            StateHasChanged();
+        }
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        if (!Sub)
+        {
+            if(tarefa.ProjetoId == 0)
+                tarefa.ProjetoId = ProjetoId;
+            tarefa.TarefaDatalimite = DateTime.Now;
+        }
+        return base.OnInitializedAsync();
+    }
+}

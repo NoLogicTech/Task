@@ -1,0 +1,12 @@
+C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimateBibliotec\bin\Debug\netcoreapp3.1\TaskUltimateBibliotec.deps.json
+C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimateBibliotec\bin\Debug\netcoreapp3.1\TaskUltimateBibliotec.runtimeconfig.json
+C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimateBibliotec\bin\Debug\netcoreapp3.1\TaskUltimateBibliotec.runtimeconfig.dev.json
+C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimateBibliotec\bin\Debug\netcoreapp3.1\TaskUltimateBibliotec.dll
+C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimateBibliotec\bin\Debug\netcoreapp3.1\TaskUltimateBibliotec.pdb
+C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimateBibliotec\obj\Debug\netcoreapp3.1\TaskUltimateBibliotec.csproj.AssemblyReference.cache
+C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimateBibliotec\obj\Debug\netcoreapp3.1\TaskUltimateBibliotec.AssemblyInfoInputs.cache
+C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimateBibliotec\obj\Debug\netcoreapp3.1\TaskUltimateBibliotec.AssemblyInfo.cs
+C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimateBibliotec\obj\Debug\netcoreapp3.1\TaskUltimateBibliotec.csproj.CoreCompileInputs.cache
+C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimateBibliotec\obj\Debug\netcoreapp3.1\TaskUltimateBibliotec.dll
+C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimateBibliotec\obj\Debug\netcoreapp3.1\TaskUltimateBibliotec.pdb
+C:\Users\NoLogicTech\Documents\GitHub\Task\TaskUltimateBibliotec\obj\Debug\netcoreapp3.1\TaskUltimateBibliotec.genruntimeconfig.cache
